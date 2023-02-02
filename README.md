@@ -1,2 +1,4 @@
 # javascript-stopwatch
- A simple stopwatch made with Javascript.
+A stopwatch made with Javascript.
+
+To access the project, click [this link.](https://artoriusss.github.io/javascript-stopwatch/)
