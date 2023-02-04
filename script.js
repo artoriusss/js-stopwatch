@@ -3,6 +3,7 @@ let seconds = 0
 let minutes = 0
 let hours = 0
 let timer // Makes the setInterval variable global, to use in every function.
+let running = false // Flag to prevent clicking more than once on the start button.
 
 const startBtn = document.getElementById("start-btn")
 const resetBtn = document.getElementById("reset-btn")
@@ -16,8 +17,14 @@ pauseBtn.addEventListener("click", pauseTimer)
 
 // Starts the timer.
 function startTimer(){
-    pauseTimer() // Not a optimal way to fix the clicking glitch, I'll fix this soon.
-    timer = setInterval(formatTimer, 10)
+    if( running !== true){
+        timer = setInterval(formatTimer, 10)
+        running = true
+        console.log("Running!")
+    }
+    else{
+        console.log("Already Running!")
+    }
 }
 
 // Function to format the timer correctly.
@@ -46,10 +53,12 @@ function formatTimer(){
 function resetTimer(){
     hours = minutes = seconds = 0
     clearInterval(timer)
+    running = false
     time.innerHTML = '00:00:00<span id="ms">.00</span>'
 }
 
 // Pauses the timer.
 function pauseTimer(){
     clearInterval(timer)
+    running = false
 }
