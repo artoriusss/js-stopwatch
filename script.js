@@ -20,10 +20,8 @@ function startTimer(){
     if( running !== true){
         timer = setInterval(formatTimer, 10)
         running = true
-        console.log("Running!")
     }
     else{
-        console.log("Already Running!")
     }
 }
 
